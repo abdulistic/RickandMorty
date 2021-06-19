@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    NavigationPage.HasNavigationBar="True"
+    xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:Class="RickandMorty.Pages.CharacterDetails">
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label
+                FontFamily="{DynamicResource Montserrat-Bold}"
+                FontSize="Small"
+                HorizontalOptions="FillAndExpand"
+                Text="DETAILS"
+                VerticalOptions="FillAndExpand"
+                MaxLines="2"
+                HorizontalTextAlignment="Start"
+                LineBreakMode="TailTruncation"
+                VerticalTextAlignment="Center"
+                TextColor="{DynamicResource Gray-200}" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid>
+            <Grid
+                RowSpacing="-30"
+                BackgroundColor="Black">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60*" />
+                    <RowDefinition Height="40*" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Image 
+                        Margin="-10,0"
+                        Aspect="AspectFill">
+                        <Image.Source>
+                            <UriImageSource
+                                CachingEnabled="true"
+                                Uri="{Binding Chractar.Image}" />
+                        </Image.Source>
+                    </Image>
+                    <Frame
+                        BackgroundColor="{DynamicResource Black-10}"
+                        Padding="0">
+                        <Frame
+                            HasShadow="True"
+                            CornerRadius="0"
+                            VerticalOptions="EndAndExpand"
+                            Padding="10,20">
+                            <Frame.Background>
+                                <LinearGradientBrush
+                                    EndPoint="0,1">
+                                    <GradientStop
+                                        Color="Transparent"
+                                        Offset="0.1" />
+                                    <GradientStop 
+                                        Color="{DynamicResource Gray-800}"
+                                        Offset="1.0" >
+                                    </GradientStop>
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <Label
+                                VerticalOptions="EndAndExpand"
+                                FontFamily="{DynamicResource Montserrat-SemiBold}"
+                                Text="{Binding Chractar.Name}"
+                                Margin="10,20,0,30"
+                                FontSize="30"
+                                MaxLines="2"
+                                IsVisible="True"
+                                TextColor="{DynamicResource Gray-White}"
+                                LineBreakMode="TailTruncation"/>
+                        </Frame>
+                    </Frame>
+                </Grid>
+                <pancakeView:PancakeView
+                    Grid.Row="1"
+                    CornerRadius="30,30,0,0">
+                    <ScrollView>
+                        <ScrollView.Background>
+                            <LinearGradientBrush
+                                StartPoint="0,0"
+                                EndPoint="1,0">
+                                <GradientStop
+                                    Color="{DynamicResource Blue-100}"
+                                    Offset="0.1"/>
+                                <GradientStop
+                                    Color="{DynamicResource Blue-50}"
+                                    Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </ScrollView.Background>
+                        <StackLayout
+                            Spacing="15"
+                            VerticalOptions="CenterAndExpand"
+                            Padding="20">
+                            <StackLayout
+                                Spacing="5">
+                                <StackLayout
+                                    HorizontalOptions="CenterAndExpand"
+                                    VerticalOptions="Center"
+                                    Spacing="15"
+                                    Orientation="Horizontal">
+                                    <BoxView 
+                                        VerticalOptions="Center"
+                                        Color="{DynamicResource Gray-400}"
+                                        HeightRequest="1"/>
+                                    <Label
+                                        FontFamily="{DynamicResource Montserrat-Medium}"
+                                        FontSize="Medium"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="FillAndExpand"
+                                        VerticalTextAlignment="Center"
+                                        Text="Origin"
+                                        TextColor="{DynamicResource Gray-400}" />
+                                    <BoxView 
+                                         VerticalOptions="Center"
+                                        Color="{DynamicResource Gray-400}"
+                                        HeightRequest="1"/>
+                                </StackLayout>
+                                <Label
+                                    FontFamily="{DynamicResource Montserrat-SemiBold}"
+                                    FontSize="Medium"
+                                    HorizontalOptions="FillAndExpand"
+                                    Text="{Binding Chractar.Origin.Name}"
+                                    VerticalOptions="FillAndExpand"
+                                    MaxLines="2"
+                                    HorizontalTextAlignment="Center"
+                                    LineBreakMode="TailTruncation"
+                                    VerticalTextAlignment="End"
+                                    TextColor="{DynamicResource Gray-300}" />
+                            </StackLayout>
+                            <BoxView 
+                                VerticalOptions="Center"
+                                Color="{DynamicResource Gray-400}"
+                                HeightRequest="1"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="33*"/>
+                                    <ColumnDefinition Width="34*"/>
+                                    <ColumnDefinition Width="33*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout 
+                                        HorizontalOptions="CenterAndExpand"
+                                        Grid.Column="0">
+                                    <Label
+                                        FontFamily="{DynamicResource Montserrat-Medium}"
+                                        FontSize="Small"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="FillAndExpand"
+                                        VerticalTextAlignment="Center"
+                                        Text="Status"
+                                        TextColor="{DynamicResource Gray-400}" />
+                                    <Label
+                                        FontFamily="{DynamicResource Montserrat-SemiBold}"
+                                        FontSize="Medium"
+                                        HorizontalOptions="FillAndExpand"
+                                        Text="{Binding Chractar.Status}"
+                                        VerticalOptions="FillAndExpand"
+                                        MaxLines="2"
+                                        HorizontalTextAlignment="Center"
+                                        LineBreakMode="TailTruncation"
+                                        VerticalTextAlignment="End"
+                                        TextColor="{DynamicResource Gray-300}" />
+                                </StackLayout>
+                                <StackLayout
+                                    HorizontalOptions="CenterAndExpand"
+                                    Grid.Column="1">
+                                    <Label
+                                        FontFamily="{DynamicResource Montserrat-Medium}"
+                                        FontSize="Small"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="FillAndExpand"
+                                        VerticalTextAlignment="Center"
+                                        Text="Species"
+                                        TextColor="{DynamicResource Gray-400}" />
+                                    <Label
+                                        FontFamily="{DynamicResource Montserrat-SemiBold}"
+                                        FontSize="Medium"
+                                        HorizontalOptions="FillAndExpand"
+                                        Text="{Binding Chractar.Species}"
+                                        VerticalOptions="FillAndExpand"
+                                        MaxLines="2"
+                                        HorizontalTextAlignment="Center"
+                                        LineBreakMode="TailTruncation"
+                                        VerticalTextAlignment="End"
+                                        TextColor="{DynamicResource Gray-300}" />
+                                </StackLayout>
+                                <StackLayout
+                                    HorizontalOptions="CenterAndExpand"
+                                    Grid.Column="2">
+                                    <Label
+                                        FontFamily="{DynamicResource Montserrat-Medium}"
+                                        FontSize="Small"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="FillAndExpand"
+                                        VerticalTextAlignment="Center"
+                                        Text="Gender"
+                                        TextColor="{DynamicResource Gray-400}" />
+                                    <Label
+                                        FontFamily="{DynamicResource Montserrat-SemiBold}"
+                                        FontSize="Medium"
+                                        HorizontalOptions="FillAndExpand"
+                                        Text="{Binding Chractar.Gender}"
+                                        VerticalOptions="FillAndExpand"
+                                        MaxLines="2"
+                                        HorizontalTextAlignment="Center"
+                                        LineBreakMode="TailTruncation"
+                                        VerticalTextAlignment="End"
+                                        TextColor="{DynamicResource Gray-300}" />
+                                </StackLayout>
+                            </Grid>
+                            <BoxView 
+                                VerticalOptions="Center"
+                                Color="{DynamicResource Gray-400}"
+                                HeightRequest="1"/>
+                            <Label
+                                FontFamily="{DynamicResource Montserrat-Bold}"
+                                FontSize="28"
+                                HorizontalOptions="FillAndExpand"
+                                Text="{Binding Chractar.Episode.Count,StringFormat='Episodes {0}'}"
+                                VerticalOptions="FillAndExpand"
+                                MaxLines="2"
+                                HorizontalTextAlignment="Center"
+                                LineBreakMode="TailTruncation"
+                                TextColor="{DynamicResource Gray-300}" />
+                        </StackLayout>
+                    </ScrollView>
+                </pancakeView:PancakeView>
+            </Grid>
+            <StackLayout
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="White"
+                IsVisible="{Binding IsBusy}"
+                VerticalOptions="FillAndExpand">
+                <ActivityIndicator
+                    IsRunning="True"
+                    Color="Red"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
